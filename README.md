@@ -35,3 +35,16 @@
 
 ## 解耦案例：队列处理订单系统和配送系统
 
+访问 `域名/order/create?mobile=手机号` 创建
+
+定时处理发货任务
+
+```
+*/1 * * * * /mnt/hgfs/myproject/php-demo/public/delivery.sh >> /mnt/hgfs/myproject/php-demo/public/delivery.log 2>&1
+```
+
+监控日志文件
+
+```
+tail -f delivery.log
+```
