@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('order/create', 'OrderController@create');
-Route::get('delivery', 'DeliveryController@index');
+Route::get('order/saveToDb', 'OrderController@saveToDb');
+Route::get('redis/user', 'RedisController@user');

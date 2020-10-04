@@ -48,3 +48,38 @@
 ```
 tail -f delivery.log
 ```
+
+## 流量削峰案例：Redis的List类型实现秒杀
+
+### Redis数据类型中的List类型
+
+- LPUSH/LPUSHX：将值插入到（/存在的）列表头部
+- RPUSH/RPUSHX：将值插入到（/存在的）列表尾部
+- LPOP：移除并获取列表的第一个元素
+- RPOP：移除并获取列表的最后一个元素
+- LTRIM：保留指定区间内的元素
+- LLEN：获取列表长度
+- LSET：通过索引设置列表元素的值
+- LINDEX：通过索引获取列表中的元素
+- LRANGE：获取列表指定范围内的元素
+
+### 代码级设计
+
+- 秒杀程序把请求写入Redis。（Uid，time_stamp）
+- 检查Redis已存放数据的长度，超出上限直接丢弃。
+- 死循环处理存入Redis的数据并入库
+
+## RabbitMQ
+
+### RabbitMQ的架构和原理
+
+- 特点：完整的实现了AMQP、集群简化、持久化、跨平台
+
+### RabbitMQ使用
+
+- RabbitMQ安装（rabbitmq-server、php-amqplib）
+- 生产者向消息通道发送消息
+- 消费者处理消息
+
+### Work Queues
+
